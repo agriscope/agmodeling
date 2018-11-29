@@ -13,7 +13,7 @@ An Evaluation Tool Kit of Air Quality 1 Micro-Sensing Units
 
 What's New
 ===========
-- (2018/11)First version 
+- (2018/11) First version (v 0.2)
 
 
 

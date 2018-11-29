@@ -5,4 +5,4 @@ u"""
 Statistical modeling tools, to unify model creation and scoring based on python
 """
 
-__version__ = u"0.0.1"
+__version__ = u"0.2"
