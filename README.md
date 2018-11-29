@@ -1,5 +1,6 @@
-#ag modeling
 
+Agmodeling
+===========
 Statistical modeling tools, to unify model creation and scoring based on python
 
 package agmodeling.setscoring implements a part of the SET method for comparing
