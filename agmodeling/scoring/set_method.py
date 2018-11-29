@@ -18,15 +18,10 @@ https://fishbain.net.technion.ac.il/home-page/projects-software/
 
 
 get_IPI_score(df['REF',df['CANDIDATE]):
+ Match     : RMSE      : Pearson   : Kendall   : Spearma   : LFE        :: IPI       
+ 0.687539  : 0.102816  : 0.747821  : 0.524258  : 0.695786  : 0.980072   :: 0.756295  
 
-Match    :0.648910
-RMSE    :0.015893
-Pearson    :0.800773
-Kendall    :0.537101
-Spearma    :0.713828
-LFE    :0.980072
-===================
-0.777485856
+0.756295
 '''
 
 
@@ -87,10 +82,10 @@ u'''
 def get_rmse(ref,data) :
     # enfait calcul de Normalized root mean square error (NRMSE)
     diff= ref-data
-    standardDev= ref.max() - ref.min()
+    rangeDynamic= ref.max() - ref.min()
     
     #print standardDev
-    return np.sqrt(np.mean(diff*diff))/standardDev
+    return np.sqrt(np.mean(diff*diff))/rangeDynamic
 
 def get_pearson_correl(ref,data):
     #method : {‘pearson’, ‘kendall’, ‘spearman’}
@@ -197,7 +192,7 @@ def get_energy_balance (dataserie) :
     dct = fftpack.dct(dataserie)
     # compute nrg total () from the R code
     squared = dct*dct
-    nrjTot= squared.sum() * len (dct)
+    nrjTot= squared.sum() * (len (dct)-1)
     # create a vector [0,1,2,3,4...,len(dct ) -1]
     vector = np.arange(len (dct))
     # Energie haute frequence 
