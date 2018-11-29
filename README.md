@@ -38,7 +38,9 @@ Installations
 Uses cases
 ========== 
 
-
+	from agmodeling.scoring.set_method import get_IPI_score
+	import pandas as pd
+	
 	file = u'sample_data.xlsx'
 	print (u'Read excel data file : %s'%file)
 	df = pd.read_excel(file)
