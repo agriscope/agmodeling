@@ -90,10 +90,3 @@ You can run the whole demo inside the package
 	
 	Fin du programme
 
-
-    from agstream.session import AgspSession
-    session = AgspSession()
-    session.login('masnumeriqueAgStream', '1AgStream', updateAgribaseInfo=True)
-    for abs in session.agribases :
-        df = session.getAgribaseDataframe(abs)
-        print df.tail()
