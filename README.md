@@ -60,35 +60,36 @@ You can run the whole demo inside the package
 	Read excel data file : sample_data.xlsx
 	containing 2568 data
 	
+
 	Score IPI for PM25_RAW
-	 Match     : RMSE      : Pearson   : Kendall   : Spearman  : LFE        :: IPI
-	 0.492835  : 0.238941  : 0.639916  : 0.417968  : 0.575632  : 0.980072   :: 0.648981
+	 Match     : RMSE      : Pearson   : Kendall   : Spearman  : LFE        :: IPI       
+	 0.492835  : 0.869434  : 0.639916  : 0.417968  : 0.575632  : 0.980010   :: 0.539488  
 	
 	Score IPI for PM25_MOD_QUAD
-	 Match     : RMSE      : Pearson   : Kendall   : Spearman  : LFE        :: IPI
-	 0.687539  : 0.102816  : 0.747821  : 0.524258  : 0.695786  : 0.980072   :: 0.756295
+	 Match     : RMSE      : Pearson   : Kendall   : Spearman  : LFE        :: IPI       
+	 0.687539  : 0.374117  : 0.747821  : 0.524258  : 0.695786  : 0.980010   :: 0.710216  
 	
 	Score IPI for PM25_MOD_EARTH
-	 Match     : RMSE      : Pearson   : Kendall   : Spearman  : LFE        :: IPI
-	 0.648910  : 0.092760  : 0.800773  : 0.537126  : 0.713852  : 0.980072   :: 0.765357
+	 Match     : RMSE      : Pearson   : Kendall   : Spearman  : LFE        :: IPI       
+	 0.648910  : 0.337527  : 0.800773  : 0.537126  : 0.713852  : 0.980010   :: 0.723857  
 	
 	Score IPI for PM10_RAW
-	 Match     : RMSE      : Pearson   : Kendall   : Spearman  : LFE        :: IPI
-	 0.486604  : 0.264435  : 0.454199  : 0.269705  : 0.393423  : 0.990418   :: 0.560331
+	 Match     : RMSE      : Pearson   : Kendall   : Spearman  : LFE        :: IPI       
+	 0.486604  : 0.786641  : 0.454199  : 0.269705  : 0.393423  : 0.990388   :: 0.467946  
 	
 	Score IPI for PM10_MOD_QUAD
-	 Match     : RMSE      : Pearson   : Kendall   : Spearman  : LFE        :: IPI
-	 0.742056  : 0.074365  : 0.866073  : 0.612143  : 0.789426  : 0.990418   :: 0.821408
+	 Match     : RMSE      : Pearson   : Kendall   : Spearman  : LFE        :: IPI       
+	 0.742056  : 0.221220  : 0.866073  : 0.612143  : 0.789426  : 0.990388   :: 0.796478  
 	
 	Score IPI for PM10_MOD_EARTH
-	 Match     : RMSE      : Pearson   : Kendall   : Spearman  : LFE        :: IPI
-	 0.763240  : 0.061937  : 0.909195  : 0.657553  : 0.832455  : 0.990418   :: 0.848801
+	 Match     : RMSE      : Pearson   : Kendall   : Spearman  : LFE        :: IPI       
+	 0.763240  : 0.184250  : 0.909195  : 0.657553  : 0.832455  : 0.990388   :: 0.828097  
 	
 	========================================
 	Results :
 	           RAW  MOD_QUAD  MOD_EARTH
-	PM10  0.560331  0.821408   0.848801
-	PM25  0.648981  0.756295   0.765357
+	PM10  0.467946  0.796478   0.828097
+	PM25  0.539488  0.710216   0.723857
 	
 	Fin du programme
 
