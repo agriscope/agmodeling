@@ -10,7 +10,7 @@ Samle comparing different models
 '''
 
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
 from agmodeling.scoring.set_method import get_IPI_score
 
 
@@ -62,3 +62,4 @@ print res
 
 
 print u'\nFin du programme'
+plt.show()

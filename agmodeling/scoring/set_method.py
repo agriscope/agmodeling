@@ -51,6 +51,7 @@ def get_IPI_score(ref,candidate):
     work[u'REF'] = ref
     work[u'CANDIDATE'] = candidate
     rmse = get_rmse(work[u'REF'] ,work[u'CANDIDATE'])
+    rmseTo1 = 1 - rmse
     cor_pearson = get_pearson_correl(work[u'REF'] ,work[u'CANDIDATE'])
     cor_kendall = get_kendall_correl(work[u'REF'] ,work[u'CANDIDATE'])
     cor_spearman = get_spearman_correl(work[u'REF'] ,work[u'CANDIDATE'])
@@ -59,7 +60,7 @@ def get_IPI_score(ref,candidate):
     
     scorefinal=np.array([match_score,cor_pearson,
            cor_kendall,cor_spearman,
-           energy_balance, math.exp(-1.0*rmse)])
+           energy_balance,rmseTo1])
     IPI=scorefinal.mean()
     
     header = u" %-10s: %-10s: %-10s: %-10s: %-10s: %-10s :: %-10s" \
@@ -82,10 +83,12 @@ u'''
 def get_rmse(ref,data) :
     # enfait calcul de Normalized root mean square error (NRMSE)
     diff= ref-data
-    rangeDynamic= ref.max() - ref.min()
-    
+    refMean= ref.mean()
+    rmse = np.sqrt(np.mean(diff*diff))
+ #   print "rmse=%.1f rangeDynamicMean=%.1f" % (rmse,rangeDynamicMean)
+    returnv = rmse/refMean
     #print standardDev
-    return np.sqrt(np.mean(diff*diff))/rangeDynamic
+    return returnv
 
 def get_pearson_correl(ref,data):
     #method : {‘pearson’, ‘kendall’, ‘spearman’}
