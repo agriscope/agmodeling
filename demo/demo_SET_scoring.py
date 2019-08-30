@@ -28,6 +28,7 @@ results = dict()
 
 listModelNames = list()
 for col in df10.columns :
+    print col
     modelName = col.split(u'_',1)[1]
     if modelName != u'REF':
         listModelNames.append(modelName)
