@@ -45,13 +45,14 @@ Uses cases
 	file = u'sample_data.xlsx'
 	print (u'Read excel data file : %s'%file)
 	df = pd.read_excel(file)
-    ipi = get_IPI_score(df[u'PM10_REF'], df[u'PM10_MOD_EARTH'])
+	ipi = get_IPI_score(df[u"PM10_REF"], df[u"PM10_MOD_EARTH"])
+	
     print ipi
     
      Match     : RMSE      : Pearson   : Kendall   : Spearman  : LFE        :: IPI
 	 0.763240  : 0.061937  : 0.909195  : 0.657553  : 0.832455  : 0.990418   :: 0.848801
 	
-	0.848801
+	 0.848801
 	
 	
 You can run the whole demo inside the package   
@@ -85,12 +86,11 @@ You can run the whole demo inside the package
 	Score IPI for PM10_MOD_EARTH
 	 Match     : RMSE      : Pearson   : Kendall   : Spearman  : LFE        :: IPI       
 	 0.763240  : 0.184250  : 0.909195  : 0.657553  : 0.832455  : 0.990388   :: 0.828097  
-	
-	========================================
+		
 	Results :
-	           RAW  MOD_QUAD  MOD_EARTH
+	"		RAW  MOD_QUAD  MOD_EARTH
 	PM10  0.467946  0.796478   0.828097
-	PM25  0.539488  0.710216   0.723857
+	PM25  0.539488  0.710216   0.723857"
 	
 	Fin du programme
 
