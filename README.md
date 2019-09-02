@@ -13,6 +13,7 @@ An Evaluation Tool Kit of Air Quality 1 Micro-Sensing Units
 
 What's New
 ===========
+- (2019/08) python 3 support (v 0.4)
 - (2018/11) First version (v 0.3)
 
 
@@ -20,7 +21,7 @@ What's New
 Dependencies
 =============
 
-Agmodeling is written to be use with python 2.7
+Agmodeling is written to be use with python 2.7 and python 3.6
 It requires Pandas, numpy and  scipy
 It requires `Pandas`::
 

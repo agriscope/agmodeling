@@ -8,6 +8,7 @@ Samle comparing different models
 
 @author: guillaume
 '''
+from __future__ import print_function
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -28,7 +29,7 @@ results = dict()
 
 listModelNames = list()
 for col in df10.columns :
-    print col
+    print(col)
     modelName = col.split(u'_',1)[1]
     if modelName != u'REF':
         listModelNames.append(modelName)
@@ -42,25 +43,25 @@ datas=dict()
 datas[PM25] = list()
 for col in df25.columns :
     if col != u'PM25_REF' :
-        print u'\nScore IPI for %s' % col
+        print(u'\nScore IPI for %s' % col)
         ipi = get_IPI_score(df[u'PM25_REF'], df[col])
         datas[PM25].append(ipi)
         
 datas[PM10] = list()
 for col in df10.columns :
     if col != u'PM10_REF' :
-        print u'\nScore IPI for %s' % col
+        print(u'\nScore IPI for %s' % col)
         ipi = get_IPI_score(df[u'PM10_REF'], df[col])
         datas[PM10].append(ipi)
     
 res = pd.DataFrame.from_dict(datas, orient=u'index')
 res.columns = listModelNames
 
-print u'\n========================================'
-print u'Results :'
-print res
+print(u'\n========================================')
+print(u'Results :')
+print(res)
 
 
 
-print u'\nFin du programme'
+print(u'\nFin du programme')
 plt.show()

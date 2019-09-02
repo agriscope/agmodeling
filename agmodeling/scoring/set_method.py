@@ -23,6 +23,7 @@ get_IPI_score(df['REF',df['CANDIDATE]):
 
 0.756295
 '''
+from __future__ import print_function
 
 
 
@@ -31,10 +32,6 @@ import pandas as pd
 import numpy as np
 from scipy import fftpack
 import math
-
-
-
-
 
 
 u'''
@@ -71,8 +68,8 @@ def get_IPI_score(ref,candidate):
               cor_spearman,energy_balance,IPI)
            
      
-    print header
-    print values
+    print(header)
+    print(values)
     return IPI
 
 
