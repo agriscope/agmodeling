@@ -13,6 +13,7 @@ An Evaluation Tool Kit of Air Quality 1 Micro-Sensing Units
 
 What's New
 ===========
+- (2022/09) correction of warning after pandas version evolution (v 0.5)
 - (2019/08) python 3 support (v 0.4)
 - (2018/11) First version (v 0.3)
 

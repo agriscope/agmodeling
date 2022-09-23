@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-u"""
+"""
 Created on 29 nov. 2018
 
 @author: guill
@@ -32,7 +32,7 @@ from scipy import fftpack
 import math
 
 
-u"""
+"""
 get the global IPI score, a mean of differtens parameters
 
 R piece of code
@@ -45,31 +45,31 @@ R piece of code
 
 def get_IPI_score(ref, candidate):
     work = pd.DataFrame()
-    work[u"REF"] = ref
-    work[u"CANDIDATE"] = candidate
-    rmse = get_rmse(work[u"REF"], work[u"CANDIDATE"])
+    work["REF"] = ref
+    work["CANDIDATE"] = candidate
+    rmse = get_rmse(work["REF"], work["CANDIDATE"])
     rmseTo1 = 1 - rmse
-    cor_pearson = get_pearson_correl(work[u"REF"], work[u"CANDIDATE"])
-    cor_kendall = get_kendall_correl(work[u"REF"], work[u"CANDIDATE"])
-    cor_spearman = get_spearman_correl(work[u"REF"], work[u"CANDIDATE"])
-    match_score = compute_match_score_multiple(work[u"REF"], work[u"CANDIDATE"], 10)
-    energy_balance = get_energy_balance(work[u"REF"])
+    cor_pearson = get_pearson_correl(work["REF"], work["CANDIDATE"])
+    cor_kendall = get_kendall_correl(work["REF"], work["CANDIDATE"])
+    cor_spearman = get_spearman_correl(work["REF"], work["CANDIDATE"])
+    match_score = compute_match_score_multiple(work["REF"], work["CANDIDATE"], 10)
+    energy_balance = get_energy_balance(work["REF"])
 
     scorefinal = np.array(
         [match_score, cor_pearson, cor_kendall, cor_spearman, energy_balance, rmseTo1]
     )
     IPI = scorefinal.mean()
 
-    header = u" %-10s: %-10s: %-10s: %-10s: %-10s: %-10s :: %-10s" % (
-        u"Match",
-        u"RMSE",
-        u"Pearson",
-        u"Kendall",
-        u"Spearman",
-        u"LFE",
-        u"IPI",
+    header = " %-10s: %-10s: %-10s: %-10s: %-10s: %-10s :: %-10s" % (
+        "Match",
+        "RMSE",
+        "Pearson",
+        "Kendall",
+        "Spearman",
+        "LFE",
+        "IPI",
     )
-    values = u" %-10.6f: %-10.6f: %-10.6f: %-10.6f: %-10.6f: %-10.6f :: %-10.6f" % (
+    values = " %-10.3f: %-10.3f: %-10.3f: %-10.3f: %-10.3f: %-10.3f :: %-10.3f" % (
         match_score,
         rmse,
         cor_pearson,
@@ -84,7 +84,7 @@ def get_IPI_score(ref, candidate):
     return IPI
 
 
-u"""
+"""
 2.1 Root Mean Squared Error and Correlation Coefficients
 
 """
@@ -103,20 +103,20 @@ def get_rmse(ref, data):
 
 def get_pearson_correl(ref, data):
     # method : {‘pearson’, ‘kendall’, ‘spearman’}
-    return ref.corr(data, method=u"pearson")
+    return ref.corr(data, method="pearson")
 
 
 def get_kendall_correl(ref, data):
     # method : {‘pearson’, ‘kendall’, ‘spearman’}
-    return ref.corr(data, method=u"kendall")
+    return ref.corr(data, method="kendall")
 
 
 def get_spearman_correl(ref, data):
     # method : {‘pearson’, ‘kendall’, ‘spearman’}
-    return ref.corr(data, method=u"spearman")
+    return ref.corr(data, method="spearman")
 
 
-u"""
+"""
 2.4 Match Score
  
 """
@@ -124,8 +124,8 @@ u"""
 
 def compute_match_score_multiple(ref, data, D):
     work = pd.DataFrame()
-    work[u"REF"] = ref
-    work[u"CANDIDATE"] = data
+    work["REF"] = ref
+    work["CANDIDATE"] = data
     count = 0.0
     dataLen = len(work)
     for i in range(1, D + 1):
@@ -135,7 +135,7 @@ def compute_match_score_multiple(ref, data, D):
 
 # SCORE
 #
-u"""
+"""
 R code
 ighLowAnalysis <- function(param,deviceID,Q){
   
@@ -166,17 +166,17 @@ ighLowAnalysis <- function(param,deviceID,Q){
 
 
 def compute_score_unique(work, d):
-    refRange = [work[u"REF"].min(), work[u"REF"].max()]
-    candidateRange = [work[u"CANDIDATE"].min(), work[u"CANDIDATE"].max()]
+    refRange = [work["REF"].min(), work["REF"].max()]
+    candidateRange = [work["CANDIDATE"].min(), work["CANDIDATE"].max()]
     binsCandidate = get_bins_score(candidateRange[0] - 1, candidateRange[1] + 1, d)
     binsRef = get_bins_score(refRange[0] - 1, refRange[1] + 1, d)
 
     tmp = pd.DataFrame()
     tmp["BINS_CANDIDATE"] = pd.cut(
-        work[u"CANDIDATE"], binsCandidate, labels=[x for x in range(0, d)]
+        work["CANDIDATE"], binsCandidate, labels=[x for x in range(0, d)]
     )
-    tmp["BINS_REF"] = pd.cut(work[u"REF"], binsRef, labels=[x for x in range(0, d)])
-    return len(tmp[tmp[u"BINS_CANDIDATE"] == tmp[u"BINS_REF"]])
+    tmp["BINS_REF"] = pd.cut(work["REF"], binsRef, labels=[x for x in range(0, d)])
+    return len(tmp[tmp["BINS_CANDIDATE"] == tmp["BINS_REF"]])
 
 
 def get_bins_score(mmin, mmax, n):
@@ -184,7 +184,7 @@ def get_bins_score(mmin, mmax, n):
     return [mmin + i * delta for i in range(n + 1)]
 
 
-u"""
+"""
 2.5 Lower Frequencies Energy (LFE)
 
 
@@ -214,7 +214,7 @@ energyBalance <- function(deviceData) {
 
 def get_energy_balance(dataserie):
     # get the dct
-    dct = fftpack.dct(dataserie)
+    dct = fftpack.dct(dataserie.values)
     # compute nrg total () from the R code
     squared = dct * dct
     nrjTot = squared.sum() * (len(dct) - 1)
