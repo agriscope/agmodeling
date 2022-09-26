@@ -23,7 +23,8 @@ get_IPI_score(df['REF',df['CANDIDATE]):
 
 0.756295
 """
-from __future__ import print_function
+import logging
+logger = logging.getLogger(__name__)
 
 
 import pandas as pd
@@ -44,6 +45,10 @@ R piece of code
 
 
 def get_IPI_score(ref, candidate):
+    
+    return get_detailed_score(ref,candidate)['IPI']
+
+def get_detailed_score(ref, candidate):
     work = pd.DataFrame()
     work["REF"] = ref
     work["CANDIDATE"] = candidate
@@ -79,9 +84,20 @@ def get_IPI_score(ref, candidate):
         IPI,
     )
 
-    print(header)
-    print(values)
-    return IPI
+    logger.info(header)
+    logger.info(values)
+    returnv = dict()
+    returnv['match_score'] = round(match_score,3)
+    returnv['rmse'] = round(rmse,3)
+    returnv['cor_pearson'] = round(cor_pearson,3)
+    returnv['cor_kendall'] = round(cor_kendall,3)
+    returnv['cor_spearman'] = round(cor_spearman,3)
+    returnv['energy_balance'] = round(energy_balance,3)
+    returnv['IPI'] = round(IPI,3)
+    
+    return returnv
+
+    
 
 
 """
@@ -95,9 +111,9 @@ def get_rmse(ref, data):
     diff = ref - data
     refMean = ref.mean()
     rmse = np.sqrt(np.mean(diff * diff))
-    #   print "rmse=%.1f rangeDynamicMean=%.1f" % (rmse,rangeDynamicMean)
+    #   logger.info "rmse=%.1f rangeDynamicMean=%.1f" % (rmse,rangeDynamicMean)
     returnv = rmse / refMean
-    # print standardDev
+    # logger.info standardDev
     return returnv
 
 
