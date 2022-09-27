@@ -44,13 +44,22 @@ Uses cases
 
 	from agmodeling.scoring.set_method import get_IPI_score
 	import pandas as pd
-	
-	file = u'sample_data.xlsx'
+
+	# logging setup
+	import logging 
+	consoleHandler = logging.StreamHandler()
+	logging.basicConfig(
+		format="%(asctime)s %(levelname)-8s %(message)s",
+		handlers=[consoleHandler],
+		level=logging.INFO,
+		)
+
+	file = 'sample_data.xlsx'
 	print (u'Read excel data file : %s'%file)
 	df = pd.read_excel(file)
 	ipi = get_IPI_score(df[u"PM10_REF"], df[u"PM10_MOD_EARTH"])
 	
-    print ipi
+    print (ipi)
     
      Match     : RMSE      : Pearson   : Kendall   : Spearman  : LFE        :: IPI
 	 0.763240  : 0.061937  : 0.909195  : 0.657553  : 0.832455  : 0.990418   :: 0.848801

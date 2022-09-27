@@ -4,4 +4,4 @@
 Statistical modeling tools, to unify model creation and scoring based on python
 """
 
-__version__ = "0.7"
+__version__ = "0.8"

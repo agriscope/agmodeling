@@ -8,11 +8,19 @@ Samle comparing different models
 
 @author: guillaume
 """
-from __future__ import print_function
 
 import pandas as pd
 import matplotlib.pyplot as plt
 from agmodeling.scoring.set_method import get_IPI_score
+import logging 
+consoleHandler = logging.StreamHandler()
+logging.basicConfig(
+    # format="%(threadName)s: %(thread)d %(asctime)s %(levelname)-8s %(message)s",
+    format="%(asctime)s %(levelname)-8s %(message)s",
+    handlers=[consoleHandler],
+    level=logging.INFO,
+)
+
 
 
 file = "sample_data.xlsx"
