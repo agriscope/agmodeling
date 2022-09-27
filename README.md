@@ -13,6 +13,7 @@ An Evaluation Tool Kit of Air Quality 1 Micro-Sensing Units
 
 What's New
 ===========
+- (2022/09) logging configuration added  (v 0.8)
 - (2022/09) introducing get_detailed_score() returning all coef  (v 0.7)
             + move to python logger
 - (2022/09) correction of warning after pandas version evolution (v 0.6)
