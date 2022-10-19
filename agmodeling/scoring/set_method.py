@@ -107,12 +107,21 @@ def get_detailed_score(ref, candidate):
 
 
 def get_rmse(ref, data):
+    # le 2022 10
+    # Change the way to calcluate NRMSE.
+    # dividing by mean() cause a problem when values are zero centre
+    # replace mean by  RMSE/(max()-min())
+    # https://stats.stackexchange.com/questions/255276/normalized-root-mean-square-error-nrmse-with-zero-mean-of-observed-value
+    
     # enfait calcul de Normalized root mean square error (NRMSE)
     diff = ref - data
-    refMean = ref.mean()
+    
+    refminmax_distance = ref.max()- ref.min()
+    if refminmax_distance == 0 :
+        refminmax_distance = 0.01
     rmse = np.sqrt(np.mean(diff * diff))
     #   logger.info "rmse=%.1f rangeDynamicMean=%.1f" % (rmse,rangeDynamicMean)
-    returnv = rmse / refMean
+    returnv = rmse / refminmax_distance
     # logger.info standardDev
     return returnv
 
