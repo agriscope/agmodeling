@@ -29,7 +29,8 @@ setup(
     description="Statistical modeling tools, to unify model creation and scoring based on python",
     # Une description longue, sera affichée pour présenter la lib
     # Généralement on dump le README ici
-  
+    long_description_content_type = "text/x-rst",
+    
     long_description = open('README.md').read(),
     # Vous pouvez rajouter une liste de dépendances pour votre lib
     # et même préciser une version. A l'installation, Python essayera de
