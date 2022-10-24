@@ -43,6 +43,7 @@ Installations
 
 Uses cases
 ========== 
+```python
 
 	from agmodeling.scoring.set_method import get_IPI_score
 	import pandas as pd
@@ -67,7 +68,7 @@ Uses cases
 	 0.763240  : 0.061937  : 0.909195  : 0.657553  : 0.832455  : 0.990418   :: 0.848801
 	
 	 0.848801
-	
+```
 	
 You can run the whole demo inside the package   
 

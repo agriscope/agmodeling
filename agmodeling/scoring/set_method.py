@@ -128,18 +128,31 @@ def get_rmse(ref, data):
 
 def get_pearson_correl(ref, data):
     # method : {‘pearson’, ‘kendall’, ‘spearman’}
-    return ref.corr(data, method="pearson")
+    returnv = ref.corr(data, method="pearson")
 
+    if returnv is np.nan :
+        # constant value, tipically when DummyRegressor is used
+        returnv = 0
+    return returnv
 
 def get_kendall_correl(ref, data):
     # method : {‘pearson’, ‘kendall’, ‘spearman’}
-    return ref.corr(data, method="kendall")
+    returnv = ref.corr(data, method="kendall")
+
+    if returnv is np.nan :
+        # constant value, tipically when DummyRegressor is used
+        returnv = 0
+    return returnv
 
 
 def get_spearman_correl(ref, data):
     # method : {‘pearson’, ‘kendall’, ‘spearman’}
-    return ref.corr(data, method="spearman")
+    returnv = ref.corr(data, method="spearman")
 
+    if returnv is np.nan :
+        # constant value, tipically when DummyRegressor is used
+        returnv = 0
+    return returnv
 
 """
 2.4 Match Score
